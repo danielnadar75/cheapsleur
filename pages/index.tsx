@@ -1,5 +1,5 @@
-import QuickMatch from "@/components/QuickMatch";
 import Head from "next/head";
+import React from "react";
 
 export default function Home() {
   return (
@@ -12,9 +12,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className="flex justify-cent items-center ">
-          <QuickMatch />
-        </div>
+        <h1>WELCOME TO CHEAPSLEUR</h1>
+        {/* <div className="flex justify-cent items-center ">
+          <SpeakEasy />
+        </div> */}
       </main>
     </>
   );
