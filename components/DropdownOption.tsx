@@ -14,7 +14,7 @@ const DropdownOptions = ({ option, handleOnClick }: Props) => {
       <a
         className="
               dropdown-item
-              text-sm
+              text-lg
               px-4
               font-normal
               block

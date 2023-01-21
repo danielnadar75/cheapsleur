@@ -85,7 +85,7 @@ export default function Home() {
 
             <Dropdown
               title={unit}
-              options={Array.from({ length: 30 }).map((e, i) => ({
+              options={Array.from({ length: 10 }).map((e, i) => ({
                 key: `${i + 1}`,
                 label: `${i + 1}`,
               }))}

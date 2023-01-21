@@ -25,7 +25,7 @@ const Dropdown = ({ title, options, handleOnClick }: Props) => {
           bg-blue-600
           text-white
           font-medium
-          text-xs
+          text-md
           leading-tight
           uppercase
           rounded
@@ -78,7 +78,8 @@ const Dropdown = ({ title, options, handleOnClick }: Props) => {
           mt-1
           m-0
           bg-clip-padding
-          border-none  
+          border-none   
+
           ${isOpen ? "" : "hidden"}`}
             aria-labelledby="dropdownMenuButton1"
           >
