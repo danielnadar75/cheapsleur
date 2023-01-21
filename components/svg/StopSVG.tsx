@@ -1,23 +1,22 @@
 import React from "react";
 
-const PlaySVG = () => {
+const StopSVG = () => {
   return (
-    <div className="div">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        // xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="44px"
-        height="44px"
-        viewBox="0 0 44 44"
-        version="1.1"
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="44px"
+      height="44px"
+      viewBox="0 0 44 44"
+      version="1.1"
+    >
+      <g
+        id="speaker/s/ongoing"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fillRule="evenodd"
       >
-        <g
-          id="speaker/s/ongoing-copy"
-          stroke="none"
-          stroke-width="1"
-          fill="none"
-          fillRule="evenodd"
-        >
+        <g id="Group">
           <g
             id="ic_volume_up_black_24px"
             transform="translate(11.286957, 11.286957)"
@@ -33,20 +32,14 @@ const PlaySVG = () => {
               fillRule="nonzero"
             />
             <path
-              d="M14.7304348,10.7130435 C14.7304348,9.09142829 13.8198261,7.69885479 12.4985507,7.02089138 L12.4985507,14.3960339 C13.8198261,13.7272322 14.7304348,12.3346587 14.7304348,10.7130435 Z"
-              id="Path"
-              fill="#19AFF9"
-            />
-            <path
               d="M12.4985507,2.67826087 L12.4985507,4.56556442 C15.0786087,5.35346785 16.9623188,7.8087948 16.9623188,10.7130435 C16.9623188,13.6172922 15.0786087,16.0726191 12.4985507,16.8605225 L12.4985507,18.7478261 C16.0784928,17.9141143 18.7478261,14.6342373 18.7478261,10.7130435 C18.7478261,6.79184969 16.0784928,3.51197263 12.4985507,2.67826087 Z"
               id="Path"
-              fill="#19AFF9"
             />
           </g>
         </g>
-      </svg>
-    </div>
+      </g>
+    </svg>
   );
 };
 
-export default PlaySVG;
+export default StopSVG;

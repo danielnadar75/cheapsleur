@@ -1,3 +1,6 @@
+import Lesson from "@/components/Lesson";
+import LessonAudioPlayer from "@/components/LessonAudioPlayer";
+import Reading from "@/components/Reading";
 import SpeakEasy from "@/components/SpeakEasy";
 import axios, { AxiosResponse } from "axios";
 import Head from "next/head";
@@ -93,6 +96,7 @@ export default function Learn() {
   const [unit, setUnit] = React.useState(
     router.query.unit ? +router.query.unit : 1
   );
+  const [tab, setTab] = React.useState(0);
 
   const fetchData = async () => {
     try {
@@ -126,19 +130,78 @@ export default function Learn() {
 
   return (
     <>
-      <main>
-        <h1 className="text-xl font-bold">
-          {router.query.language}/{router.query.unit}
-        </h1>
-
+      <main
+        className="h-[94vh] bg-gray-900 overflow-hidden"
+        style={{
+          background:
+            'url("https://learn.pimsleur.com/static/PMBackgroundLarge.54afe843.svg")',
+          backgroundPositionX: "center",
+          backgroundPositionY: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <div>
-          <h2 className="mb-4 text-4xl font-bold text-gray-700"> Speak Easy</h2>
-          <SpeakEasy
-            data={practiceData[unit - 1]?.speakEasies ?? []}
-            url={lessonData?.lessons[unit - 1]?.audioLink ?? ""}
-          />
+          {tab === 0 && (
+            <Lesson
+              url={lessonData?.lessons[unit - 1]?.audioLink ?? ""}
+              title={lessonData?.lessons[unit - 1]?.name ?? "Lesson"}
+              imageUrl={
+                lessonData?.lessons[unit - 1]?.image.thumbImageAddress ??
+                process.env.NEXT_PUBLIC_SAMPLE_IMAGE!
+              }
+            />
+          )}
+
+          {tab == 1 && (
+            <Reading
+              data={practiceData[unit - 1]?.readings ?? []}
+              url={
+                lessonData?.readings.audios.find((r) => r.order === unit)
+                  ?.audioLink
+              }
+            />
+          )}
+
+          {tab == 2 && (
+            <SpeakEasy
+              data={practiceData[unit - 1]?.speakEasies ?? []}
+              url={lessonData?.lessons[unit - 1]?.audioLink ?? ""}
+            />
+          )}
         </div>
       </main>
+
+      <footer className="h-[6vh] flex justify-between bg-blue-900">
+        <button
+          className={`border  text-white p-4 ${tab === 0 ? "bg-black" : ""}`}
+          onClick={() => setTab(0)}
+        >
+          Le
+        </button>
+        <button
+          className={`border  text-white p-4 ${tab === 1 ? "bg-black" : ""}`}
+          onClick={() => setTab(1)}
+        >
+          Re
+        </button>
+        <button
+          className={`border  text-white p-4 ${tab === 2 ? "bg-black" : ""}`}
+          onClick={() => setTab(2)}
+        >
+          Se
+        </button>
+        <button
+          className={`border  text-white p-4 ${tab === 3 ? "bg-black" : ""}`}
+        >
+          Fl
+        </button>
+        <button
+          className={`border  text-white p-4 ${tab === 4 ? "bg-black" : ""}`}
+        >
+          Qm
+        </button>
+      </footer>
     </>
   );
 }
