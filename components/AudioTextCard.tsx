@@ -4,6 +4,7 @@ import StopSVG from "./svg/StopSVG";
 
 type Props = {
   text: string;
+  additionalText?: string;
   url: string;
   time?: {
     start: number;
@@ -18,7 +19,13 @@ type Props = {
  *  https://learn.pimsleur.com/static/playingIn.5c0b4809.svg
  */
 
-const AudioTextCard = ({ text, url, time, position }: Props) => {
+const AudioTextCard = ({
+  text,
+  url,
+  time,
+  position,
+  additionalText,
+}: Props) => {
   const audioRef = React.useRef<HTMLAudioElement>(null);
   const [isAudioPlaying, setIsAudioPlaying] = React.useState(false);
 
@@ -75,6 +82,11 @@ const AudioTextCard = ({ text, url, time, position }: Props) => {
           {isAudioPlaying ? <StopSVG /> : <PlaySVG />}
         </button>
         <p className=" px-4 mx-4  shadow-[#827e7e 4px 4px 2px;] ">{text}</p>
+        {additionalText && (
+          <p className=" px-4 mx-4  shadow-[#827e7e 4px 4px 2px;] ">
+            {additionalText}
+          </p>
+        )}
       </div>
     </div>
   );

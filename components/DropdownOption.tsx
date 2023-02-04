@@ -13,16 +13,16 @@ const DropdownOptions = ({ option, handleOnClick }: Props) => {
     <li>
       <a
         className="
-              dropdown-item
-              text-lg
-              px-4
-              font-normal
-              block
-              w-full
-              whitespace-nowrap
-              bg-transparent
-              text-white
-              hover:bg-gray-700
+          dropdown-item
+          text-lg
+          px-4
+          font-normal
+          block
+          w-full
+          whitespace-nowrap
+          bg-transparent
+          text-white
+          hover:bg-gray-700
             "
         href="#"
         onClick={() => {
