@@ -51,63 +51,65 @@ export default function Home() {
       </Head>
 
       <main
-        className="h-[100vh] bg-gray-900"
+        className="h-[100vh] bg-[#222831]"
         style={{
           background:
             'url("https://learn.pimsleur.com/static/PMBackgroundLarge.54afe843.svg")',
+          // background: 'url("/img/background.jpg")',
           backgroundPositionX: "center",
           backgroundPositionY: "center",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundSize: "contain",
         }}
       >
-        <div className="flex flex-col justify-center items-center gap-8 h-2/3">
-          <h1 className="self-center text-4xl font-bold text-[#000032] m-8">
-            Cheapsleru!
-          </h1>
+        <div className="flex flex-col items-center justify-center w-screen h-screen gap-8 space-y-6">
+          <div>
+            <h1 className="self-center text-4xl font-bold text-[#000032] m-8">
+              Cheapsleru!
+            </h1>
 
-          <div className="flex flex-col gap-8">
-            <Dropdown
-              title={language}
-              options={[{ key: "french", label: "French" }]}
-              handleOnClick={handleLanguageSelection}
-            />
+            <div className="flex flex-col gap-8">
+              <Dropdown
+                title={language}
+                options={[{ key: "french", label: "French" }]}
+                handleOnClick={handleLanguageSelection}
+              />
 
-            <Dropdown
-              title={level}
-              options={[
-                { key: "1", label: "01" },
-                // { key: "2", label: "02" },
-                // { key: "3", label: "03" },
-              ]}
-              handleOnClick={handleLevelSelection}
-            />
+              <Dropdown
+                title={level}
+                options={[
+                  { key: "1", label: "01" },
+                  // { key: "2", label: "02" },
+                  // { key: "3", label: "03" },
+                ]}
+                handleOnClick={handleLevelSelection}
+              />
 
-            <Dropdown
-              title={unit}
-              options={Array.from({ length: 10 }).map((e, i) => ({
-                key: `${i + 1}`,
-                label: `${i + 1}`,
-              }))}
-              handleOnClick={handleUnitSelection}
-            />
+              <Dropdown
+                title={unit}
+                options={Array.from({ length: 10 }).map((e, i) => ({
+                  key: `${i + 1}`,
+                  label: `${i + 1}`,
+                }))}
+                handleOnClick={handleUnitSelection}
+              />
+            </div>
           </div>
-        </div>
+          <div className="flex justify-center">
+            <button
+              className="px-4 py-2 text-gray-100 bg-blue-800"
+              onClick={handleLaunchCourse}
+            >
+              Launch Course
+            </button>
 
-        <div className="flex justify-center">
-          <button
-            className="bg-blue-800 text-gray-100 px-4 py-2"
-            onClick={handleLaunchCourse}
-          >
-            Launch Course
-          </button>
-
-          <button
-            className="bg-blue-900 text-gray-100 px-4 py-2"
-            onClick={handleContinue}
-          >
-            Continue
-          </button>
+            <button
+              className="px-4 py-2 text-gray-100 bg-blue-900"
+              onClick={handleContinue}
+            >
+              Continue
+            </button>
+          </div>
         </div>
       </main>
     </>

@@ -30,6 +30,7 @@ const Reading = ({ data, url }: Props) => {
               <AudioTextCard
                 time={{ start: item.start, end: item.stop }}
                 text={item.nativeText}
+                additionalText={`[${item.text}] `}
                 url={url}
               />
             </div>

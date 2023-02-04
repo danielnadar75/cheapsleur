@@ -1,3 +1,4 @@
+import FalshCards from "@/components/FalshCards";
 import Lesson from "@/components/Lesson";
 import LessonAudioPlayer from "@/components/LessonAudioPlayer";
 import Reading from "@/components/Reading";
@@ -141,7 +142,7 @@ export default function Learn() {
           backgroundSize: "cover",
         }}
       >
-        <div>
+        <div className="w-full h-full">
           {tab === 0 && (
             <Lesson
               url={lessonData?.lessons[unit - 1]?.audioLink ?? ""}
@@ -169,10 +170,17 @@ export default function Learn() {
               url={lessonData?.lessons[unit - 1]?.audioLink ?? ""}
             />
           )}
+
+          {tab == 3 && (
+            <FalshCards
+              title={"Flash Cards"}
+              data={practiceData[unit - 1]?.flashCards ?? []}
+            />
+          )}
         </div>
       </main>
 
-      <footer className="h-[6vh] flex justify-between bg-blue-900">
+      <footer className="flex justify-between bg-blue-900 h-[6vh]">
         <button
           className={`border  text-white p-4 ${tab === 0 ? "bg-black" : ""}`}
           onClick={() => setTab(0)}
@@ -193,6 +201,9 @@ export default function Learn() {
         </button>
         <button
           className={`border  text-white p-4 ${tab === 3 ? "bg-black" : ""}`}
+          onClick={() => {
+            setTab(3);
+          }}
         >
           Fl
         </button>
