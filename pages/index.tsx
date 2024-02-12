@@ -71,7 +71,7 @@ export default function Home() {
             <div className="flex flex-col gap-8">
               <Dropdown
                 title={language}
-                options={[{ key: "french", label: "French" }]}
+                options={[{ key: "german", label: "German" }]}
                 handleOnClick={handleLanguageSelection}
               />
 
@@ -87,7 +87,7 @@ export default function Home() {
 
               <Dropdown
                 title={unit}
-                options={Array.from({ length: 10 }).map((e, i) => ({
+                options={Array.from({ length: 30 }).map((e, i) => ({
                   key: `${i + 1}`,
                   label: `${i + 1}`,
                 }))}
